@@ -1,0 +1,11 @@
+*.js
+!jest.config.js
+*.d.ts
+node_modules
+
+# include js files in "lambdas" directory
+!lambdas/**/*.js
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out

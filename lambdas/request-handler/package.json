@@ -1,0 +1,15 @@
+{
+  "name": "request-handler",
+  "version": "1.0.0",
+  "description": "handle requests to endpoints and pass them to correct SQS queue for processing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1474.0",
+    "axios": "^1.5.1"
+  }
+}

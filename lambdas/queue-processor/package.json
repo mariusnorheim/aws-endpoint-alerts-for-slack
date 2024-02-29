@@ -1,0 +1,15 @@
+{
+  "name": "queue-processor",
+  "version": "1.0.0",
+  "description": "send alert to slack channel if healthcheck endpoints return errors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1512.0",
+    "axios": "^1.5.1"
+  }
+}

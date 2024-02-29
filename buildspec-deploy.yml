@@ -1,0 +1,19 @@
+version: "0.2"
+env:
+    parameter-store:
+        MASTER_ACCOUNT: master_account_id
+phases:
+    build:
+        commands:
+            # install cdk npm packages
+            - npm i
+            - cp params/test.json params.json
+            # install lambda dependencies
+            - cd ${CODEBUILD_SRC_DIR}/lambdas/request-handler
+            - npm i
+            - cd ${CODEBUILD_SRC_DIR}/lambdas/queue-processor
+            - npm i
+            # cdk deploy
+            - cd ${CODEBUILD_SRC_DIR}
+            - npm run cdk -- bootstrap aws://$CDK_DEFAULT_ACCOUNT/$CDK_DEFAULT_REGION
+            - npm run cdk -- deploy "*" --require-approval never

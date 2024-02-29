@@ -1,0 +1,16 @@
+{
+    "Parameters": {
+        "Application": "application",
+        "Description": "desctiption",
+        "Environment": "test",
+        "LambdaTimeout": 5,
+        "LambdaMemorySize": 128,
+        "LambdaEnvSlackBotToken": "",
+        "LambdaEnvSlackChannelId": "",
+        "LambdaEnvEndpoints": "https://endpoint.to.test/api, https://endpoint.to.test/login",
+        "EventRuleMinutes": "5",
+        "EmailServiceAccount": "1234567890",
+        "EmailServiceRole": "arn:aws:iam::1234567890:role/slack-alert-ses-access-role",
+        "EmailRecipients": "user@test.io"
+    }
+}
