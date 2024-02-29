@@ -2,10 +2,15 @@ version: "0.2"
 phases:
     build:
         commands:
-            - aws s3 cp s3://$S3_BUCKET_NAME/adf-build/ adf-build/ --recursive --quiet
-            - pip install --upgrade pip
-            - pip install -r adf-build/requirements.txt -q
-            - python adf-build/generate_params.py
-artifacts:
-    files:
-        - "**/*"
+            # install cdk npm packages
+            - npm i
+            - cp params/test.json params.json
+            # install lambda dependencies
+            - cd ${CODEBUILD_SRC_DIR}/lambdas/request-handler
+            - npm i
+            - cd ${CODEBUILD_SRC_DIR}/lambdas/queue-processor
+            - npm i
+            # cdk deploy
+            - cd ${CODEBUILD_SRC_DIR}
+            - npm run cdk -- bootstrap aws://$CDK_DEFAULT_ACCOUNT/$CDK_DEFAULT_REGION
+            - npm run cdk -- deploy "*" --require-approval never
